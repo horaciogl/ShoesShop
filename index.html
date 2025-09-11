@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Zapatos - CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Inventario de la Tienda de Zapatos 👟</h1>
+
+        <div class="form-container">
+            <form id="shoe-form">
+                <input type="hidden" id="shoe-id">
+                <div class="form-group">
+                    <label for="brand">Marca:</label>
+                    <input type="text" id="brand" placeholder="Ej: Nike" required>
+                </div>
+                <div class="form-group">
+                    <label for="model">Modelo:</label>
+                    <input type="text" id="model" placeholder="Ej: Air Max 90" required>
+                </div>
+                <div class="form-group">
+                    <label for="size">Talla (US):</label>
+                    <input type="number" id="size" placeholder="Ej: 9.5" step="0.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Precio ($):</label>
+                    <input type="number" id="price" placeholder="Ej: 120.00" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="stock">Stock:</label>
+                    <input type="number" id="stock" placeholder="Ej: 50" required>
+                </div>
+                <button type="submit" id="submit-button">Agregar Zapato</button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <h2>Listado de Zapatos</h2>
+            <table id="shoe-table">
+                <thead>
+                    <tr>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Talla</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="shoe-list">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
