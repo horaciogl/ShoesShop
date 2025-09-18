@@ -1,3 +1,37 @@
+    // Exportar a Excel (XLSX)
+    (function addSheetJSScriptExport() {
+        if (!window.XLSX) {
+            var script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+            script.onload = function() {};
+            document.head.appendChild(script);
+        }
+    })();
+
+    const exportXlsxBtn = document.getElementById('export-xlsx-btn');
+    if (exportXlsxBtn) {
+        exportXlsxBtn.addEventListener('click', () => {
+            if (!shoes.length) {
+                alert('No hay datos para exportar.');
+                return;
+            }
+            const data = [
+                ['Marca','Modelo','Talla','Precio','Stock','Imagen'],
+                ...shoes.map(shoe => [
+                    shoe.brand,
+                    shoe.model,
+                    shoe.size,
+                    shoe.price,
+                    shoe.stock,
+                    shoe.image || ''
+                ])
+            ];
+            const ws = XLSX.utils.aoa_to_sheet(data);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Zapatos');
+            XLSX.writeFile(wb, 'zapatos.xlsx');
+        });
+    }
     // Importar desde Excel/CSV
     // SheetJS CDN
     (function addSheetJSScript() {
@@ -189,40 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Exportar a CSV
-    const exportBtn = document.getElementById('export-btn');
-    if (exportBtn) {
-        exportBtn.addEventListener('click', () => {
-            if (!shoes.length) {
-                alert('No hay datos para exportar.');
-                return;
-            }
-            const csvRows = [];
-            // Header
-            csvRows.push(['Marca','Modelo','Talla','Precio','Stock','Imagen'].join(','));
-            // Data
-            shoes.forEach(shoe => {
-                csvRows.push([
-                    '"'+shoe.brand.replace(/"/g,'""')+'"',
-                    '"'+shoe.model.replace(/"/g,'""')+'"',
-                    shoe.size,
-                    shoe.price,
-                    shoe.stock,
-                    '"'+(shoe.image ? shoe.image : '')+'"'
-                ].join(','));
-            });
-            const csvContent = csvRows.join('\n');
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'zapatos.csv';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        });
-    }
 
     // Renderizar los zapatos al cargar la página
     renderShoes();
