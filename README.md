@@ -11,11 +11,11 @@ This is a simple web application for managing a shoe store's inventory. Users ca
 This project is a simple web-based inventory management system for a shoe store. It allows users to perform CRUD (Create, Read, Update, Delete) operations on a list of shoes, managing essential details such as brand, model, size, price, and stock. The application is built using HTML, CSS, and JavaScript, and is fully client-side.
 
 ## Features
-- Add new shoes to the inventory with details: brand, model, size, price, stock, and image.
+- Add new shoes to the inventory with details: ID, brand, model, size, price, stock, and image.
 - Edit existing shoe entries directly from the inventory table.
 - Delete shoes from the inventory.
-- Export the inventory to a CSV/Excel file.
-- Import new shoes from a CSV or Excel file (columns: Marca, Modelo, Talla, Precio, Stock, Imagen).
+- Export the inventory to an Excel (XLSX) file.
+- Import new shoes from an Excel (XLSX) file (columns: ID, Marca, Modelo, Talla, Precio, Stock, Imagen).
 - Responsive and user-friendly interface.
 - Real-time updates to the inventory table without page reloads.
 
@@ -42,8 +42,8 @@ This project is a simple web-based inventory management system for a shoe store.
 ## Usage
 1. Fill in the shoe details in the form and click "Agregar Zapato" to add a new shoe.
 2. Use the "Editar" and "Eliminar" buttons in the table to update or remove shoes.
-3. To export the inventory, click the "Exportar a CSV" button. This will download a CSV file with all current data.
-4. To import new shoes, click the "Importar desde Excel/CSV" button and select a file with the columns: Marca, Modelo, Talla, Precio, Stock, Imagen. Imported shoes will be added to the inventory.
+3. To export the inventory, click the "Exportar a Excel (XLSX)" button. This will download an XLSX file with all current data.
+4. To import new shoes, click the "Importar desde Excel (XLSX)" button and select a file with the columns: ID, Marca, Modelo, Talla, Precio, Stock, Imagen. Imported shoes will be added to the inventory.
 5. All changes are reflected instantly in the table.
 6. Note: Data will be lost when the page is refreshed.
 

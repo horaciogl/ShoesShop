@@ -15,6 +15,10 @@
             <form id="shoe-form">
                 <input type="hidden" id="shoe-id">
                 <div class="form-group">
+                    <label for="shoe-uid">ID:</label>
+                    <input type="text" id="shoe-uid" placeholder="Ej: 001" required>
+                </div>
+                <div class="form-group">
                     <label for="brand">Marca:</label>
                     <input type="text" id="brand" placeholder="Ej: Nike" required>
                 </div>
@@ -43,15 +47,16 @@
         </div>
 
         <div style="display: flex; gap: 10px; justify-content: flex-end; margin-bottom: 10px;">
-            <button id="export-xlsx-btn" type="button">Exportar a Excel (XLSX)</button>
-            <input type="file" id="import-file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" style="display:none;">
-            <button id="import-btn" type="button">Importar desde Excel/CSV</button>
+            <button id="export-btn" type="button">Exportar a Excel (XLSX)</button>
+            <input type="file" id="import-file" accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" style="display:none;">
+            <button id="import-btn" type="button">Importar desde Excel (XLSX)</button>
         </div>
         <div class="table-container">
             <h2>Listado de Zapatos</h2>
             <table id="shoe-table">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Marca</th>
                         <th>Modelo</th>
                         <th>Talla</th>
